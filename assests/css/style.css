@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+header {
+    background-color: #006D9B ;
+}
+header .navbar .navbar-collapse{
+    justify-content: flex-end;
+}
+nav .navbar-brand{
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    color: white;
+    font-size: 40px;
+}
+nav .nav-item a{
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    color: white;
+    font-size: 20px;
+}
+nav .nav-item a:hover,nav .nav-item .nav-link.active {
+    color: white ;
+    text-decoration: underline;
+}
+
+/* Search bar container styling */
+.search-container {
+    padding: 10px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+}
+
+/* Search input styling */
+.search-container input {
+    border: none;
+    outline: none;
+    padding: 10px 20px;
+    border-radius: 0px 50px 0 50px;
+    color: #fff;
+    flex-grow: 1;
+}
+
+.search-container button {
+    border-radius: 50px;
+    background-color: #00bcd4;
+    border: none;
+    padding: 10px 60px;
+    color: white;
+}
+.weather-container {
+    background-color: #006d9b;
+    border-radius: 20px;
+    padding: 20px;
+    margin: 20px;
+    text-align: center;
+}
+.weather-container img {
+    width: 20%;
+    border-radius: 10px;
+}
+.day-card {
+    background-color: #2e3b58;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+}
+.day-card h5 {
+    margin-bottom: 10px;
+}
+table{
+ margin: auto;
+}
+table th{
+    width: 25%;
+}
+.weather-container h3, .weather-container h2, .weather-container h1, .weather-container p{
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    color: white;
+}
+.weather-container h3{
+    font-size: 35px;
+}
+.weather-container h2,.weather-container p{
+    font-size: 30px;
+}

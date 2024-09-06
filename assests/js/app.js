@@ -4,6 +4,9 @@ let nameP = $(".name");
 let localtime = $(".date");
 let img = document.getElementById("weatherIcon");
 let localtimeElement = $(".time");
+let wind_kph = $(".windSpeedP");
+let conditionText = $(".weatherCondition");
+
 
 const apiKey = "a66640216bab455b99a50251240609";
 
@@ -36,11 +39,14 @@ function fetchData(location) {
         const formattedTime = dateObject.toLocaleTimeString(undefined, timeOptions);
 
         localtime.text(formattedDate);
-        localtimeElement.text(formattedTime); 
+        localtimeElement.text(formattedTime);
+        
+        wind_kph.text(current.wind_kph + "kph");
  
-      }
-    });
-  }
+        conditionText.text(current.condition.text);
+    }
+  });
+}
 
 // enter key function
 document.getElementById("location-input").addEventListener("keydown", event => {

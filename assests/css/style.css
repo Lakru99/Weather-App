@@ -47,6 +47,7 @@ nav .nav-item a:hover,nav .nav-item .nav-link.active {
     border-radius: 0px 50px 0 50px;
     color: #fff;
     flex-grow: 1;
+    opacity: 60%;
 }
 
 .search-container button {

@@ -62,13 +62,16 @@ nav .nav-item a:hover,nav .nav-item .nav-link.active {
     border-radius: 10px;
 }
 .day-card {
-    background-color: #2e3b58;
+    background-color: #006d9b;
     border-radius: 10px;
     padding: 10px;
     margin: 10px;
+    font-family: "Inter", sans-serif;
+    color: white;
 }
 .day-card h5 {
     margin-bottom: 10px;
+    font-family: "Inter", sans-serif;
 }
 table{
  margin: auto;

@@ -90,4 +90,51 @@ table th{
 .weather-container h2,.weather-container p{
     font-size: 30px;
 }
+.weather-forecast h2, .weather-news h2{
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+    font-size: 35px;
+    color: #ffffff;
+}
+.weather-news {
+    background-color: #006d9b;
+    border-radius: 20px;
+    padding: 20px;
+    margin: 20px;
+    text-align: center;
+}
 
+.news-container {
+    margin: 20px;
+}
+  
+.news-card {
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin-bottom: 20px;
+  background-color: #f9f9f9;
+  margin-left: 25px;
+  border-radius: 20px;
+}
+  
+.news-card h3 {
+  font-family: "Inter", sans-serif;
+  margin-top: 0;
+  font-size: 25px;
+}
+  
+.news-card a {
+  font-family: "Inter", sans-serif;
+  color: #007bff;
+  text-decoration: none;
+}
+  
+.news-card a:hover {
+  text-decoration: underline;
+}
+
+footer{
+  font-family: "Inter", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+}

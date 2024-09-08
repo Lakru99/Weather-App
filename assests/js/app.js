@@ -28,7 +28,7 @@ function fetchData(location) {
     $.ajax({
       method: "GET",
       // url: `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${location}`
-      url: `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${location}&days=1`,
+      url: `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${location}&days=6`,
       success: ({ location, current , forecast }) => {
         countryP.text(location.country);
         idP.text(current.temp_c.toLocaleString(undefined,{style:"unit",unit:"celsius"}));
@@ -61,9 +61,72 @@ function fetchData(location) {
 
         humidity.text(current.humidity);
         windDirection.text(current.wind_dir);
+
+        const forecastContainer = $('#forecast-container');
+        forecastContainer.empty();
+
+         // Loop through each forecast day and create forecast cards
+      forecast.forecastday.forEach(day => {
+        const forecastDate = new Date(day.date);
+        const dayName = forecastDate.toLocaleDateString(undefined, { weekday: 'long' });
+        const temp = day.day.avgtemp_c.toLocaleString(undefined, { style: "unit", unit: "celsius" });
+        const icon = day.day.condition.icon;
+        const rainChance = day.day.daily_chance_of_rain;
+        const windSpeed = day.day.maxwind_kph;
+
+        // Create the forecast HTML structure
+        const forecastHTML = `
+          <div class="col day-card">
+            <h5>${dayName}</h5>
+            <p>${temp}</p>
+            <img src="${icon}" alt="${day.day.condition.text}">
+            <p>${rainChance}% Rain <h3><i class="bi bi-umbrella"></i></h3></p>
+            <p>${windSpeed} km/h <h3><i class="bi bi-wind"></i></h3></p>
+          </div>
+        `;
+
+        // Append the forecast HTML to the container
+        forecastContainer.append(forecastHTML);
+      });
     }
   });
 }
+
+
+const newsApiKey = "6dc7b78bab994b35abaa09b2d8ca07a6";
+
+function loadWeatherNews() {
+  const url = `https://newsapi.org/v2/everything?q=weather&apiKey=${newsApiKey}`;
+
+  $.ajax({
+    method: "GET",
+    url: url,
+    success: function(response) {
+      const articles = response.articles.slice(0, 6); // Get only the first 6 articles
+      const newsContainer = $('#news-container');
+      newsContainer.empty();
+
+      articles.forEach(article => {
+        const newsHTML = `
+          <div class="news-card col-lg-4 col-md-4 col-xs-12">
+            <h3>${article.title}</h3>
+            <p>${article.description}</p>
+            <a href="${article.url}" target="_blank">Read more</a>
+          </div>
+        `;
+
+        newsContainer.append(newsHTML);
+      });
+    },
+    error: function(error) {
+      console.error("Error fetching news:", error);
+      $('#news-container').html('<p>Unable to load news at this time.</p>');
+    }
+  });
+}
+
+loadWeatherNews();
+
 
 // enter key function
 document.getElementById("location-input").addEventListener("keydown", event => {

@@ -54,7 +54,7 @@ function fetchData(location) {
 
         province.text(location.region ? ` ${location.region}` : " ");
         
-        // sunrise and sunset
+
         const astro = forecast.forecastday[0].astro;
         sunRise.text(`${astro.sunrise}`);
         sunSet.text(`${astro.sunset}`);
@@ -65,7 +65,6 @@ function fetchData(location) {
         const forecastContainer = $('#forecast-container');
         forecastContainer.empty();
 
-         // Loop through each forecast day and create forecast cards
       forecast.forecastday.forEach(day => {
         const forecastDate = new Date(day.date);
         const dayName = forecastDate.toLocaleDateString(undefined, { weekday: 'long' });
@@ -74,7 +73,6 @@ function fetchData(location) {
         const rainChance = day.day.daily_chance_of_rain;
         const windSpeed = day.day.maxwind_kph;
 
-        // Create the forecast HTML structure
         const forecastHTML = `
           <div class="col day-card">
             <h5>${dayName}</h5>
@@ -85,7 +83,6 @@ function fetchData(location) {
           </div>
         `;
 
-        // Append the forecast HTML to the container
         forecastContainer.append(forecastHTML);
       });
     }
@@ -102,7 +99,7 @@ function loadWeatherNews() {
     method: "GET",
     url: url,
     success: function(response) {
-      const articles = response.articles.slice(0, 6); // Get only the first 6 articles
+      const articles = response.articles.slice(0, 6); 
       const newsContainer = $('#news-container');
       newsContainer.empty();
 
@@ -114,7 +111,6 @@ function loadWeatherNews() {
             <a href="${article.url}" target="_blank">Read more</a>
           </div>
         `;
-
         newsContainer.append(newsHTML);
       });
     },

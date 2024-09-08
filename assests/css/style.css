@@ -13,6 +13,9 @@ nav .navbar-brand{
     color: white;
     font-size: 40px;
 }
+nav .navbar-brand:hover{
+    color: white;
+}
 nav .nav-item a{
     font-family: "Inter", sans-serif;
     font-optical-sizing: auto;
@@ -32,7 +35,10 @@ nav .nav-item a:hover,nav .nav-item .nav-link.active {
     display: flex;
     align-items: center;
 }
-
+.search-container button:hover{
+    background-color: #006D9B;
+    transition: 550ms;
+}
 /* Search input styling */
 .search-container input {
     border: none;
@@ -96,6 +102,9 @@ table th{
     font-size: 35px;
     color: #ffffff;
 }
+.weather-forecast h2{
+    color: #006d9b;
+}
 .weather-news {
     background-color: #006d9b;
     border-radius: 20px;
@@ -137,4 +146,16 @@ footer{
   font-family: "Inter", sans-serif;
   font-size: 15px;
   font-weight: 400;
+}
+
+@media (max-width: 767px) {
+    .weather-container {
+        margin: 12px;
+    }
+    .weather-container h3 {
+        font-size: 22px;
+    }
+    .weather-container h2, .weather-container p {
+        font-size: 13px;
+    }
 }
